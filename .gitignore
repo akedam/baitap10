@@ -1,0 +1,10 @@
+target/
+.m2-repository/
+.idea/
+.vscode/
+*.iml
+*.log
+.env
+data/
+tmp/
+/u1.jpg

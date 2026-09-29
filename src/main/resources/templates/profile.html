@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JWT Nimbus - Hồ sơ</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            min-height: 100vh;
+            margin: 0;
+            padding: 48px 16px;
+            display: grid;
+            place-items: center;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            color: #172033;
+            background: linear-gradient(145deg, #edf4ff 0%, #f8fafc 48%, #eef2ff 100%);
+        }
+        .profile-card {
+            width: min(100%, 520px);
+            padding: 36px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.96);
+            border: 1px solid #e5eaf2;
+            border-radius: 24px;
+            box-shadow: 0 22px 60px rgba(48, 67, 108, 0.14);
+        }
+        .eyebrow {
+            margin: 0 0 24px;
+            color: #5d6b82;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+        .avatar-wrap {
+            width: 190px;
+            height: 190px;
+            margin: 0 auto 22px;
+            overflow: hidden;
+            display: grid;
+            place-items: center;
+            border: 6px solid #fff;
+            border-radius: 50%;
+            background: #dfe7f5;
+            box-shadow: 0 12px 30px rgba(51, 75, 122, 0.22);
+        }
+        .avatar {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+        }
+        .avatar-fallback {
+            display: none;
+            color: #40557c;
+            font-size: 4rem;
+            font-weight: 800;
+        }
+        .profile-name {
+            margin: 0;
+            font-size: clamp(1.65rem, 6vw, 2.2rem);
+        }
+        .profile-email {
+            margin: 7px 0 24px;
+            color: #60708a;
+            overflow-wrap: anywhere;
+        }
+        .profile-details {
+            margin: 0 0 26px;
+            padding: 18px 20px;
+            display: grid;
+            gap: 14px;
+            text-align: left;
+            background: #f7f9fc;
+            border-radius: 16px;
+        }
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .detail-row dt { color: #69768c; }
+        .detail-row dd { margin: 0; font-weight: 650; text-align: right; }
+        .role-badge {
+            padding: 4px 10px;
+            color: #2c5db0;
+            background: #e7f0ff;
+            border-radius: 999px;
+            font-size: 0.8rem;
+        }
+        .status {
+            min-height: 24px;
+            margin: 0;
+            color: #64748b;
+        }
+        button {
+            width: 100%;
+            padding: 12px 18px;
+            border: 0;
+            border-radius: 12px;
+            color: #fff;
+            background: #243b68;
+            font: inherit;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        button:hover { background: #172a50; }
+        [hidden] { display: none !important; }
+    </style>
+</head>
+<body>
+<main class="profile-card">
+    <p class="eyebrow">Người dùng đã xác thực</p>
+
+    <section id="profile" hidden>
+        <div class="avatar-wrap">
+            <img id="profile-image" class="avatar" alt="Ảnh đại diện">
+            <span id="avatar-fallback" class="avatar-fallback" aria-hidden="true">U</span>
+        </div>
+
+        <h1 id="profile-name" class="profile-name"></h1>
+        <p id="profile-email" class="profile-email"></p>
+
+        <dl class="profile-details">
+            <div class="detail-row">
+                <dt>Mã người dùng</dt>
+                <dd id="profile-id"></dd>
+            </div>
+            <div class="detail-row">
+                <dt>Vai trò</dt>
+                <dd><span id="profile-role" class="role-badge"></span></dd>
+            </div>
+            <div class="detail-row">
+                <dt>Ngày tạo</dt>
+                <dd id="profile-created-at"></dd>
+            </div>
+        </dl>
+    </section>
+
+    <p id="profile-status" class="status">Đang tải thông tin...</p>
+    <button id="logout" type="button">Đăng xuất</button>
+</main>
+<script src="/js/main.js"></script>
+</body>
+</html>
